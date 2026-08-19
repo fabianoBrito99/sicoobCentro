@@ -32,14 +32,20 @@ type AccessTokenCache = {
 const firestoreScope = "https://www.googleapis.com/auth/datastore";
 const participantsCollection = process.env.FIREBASE_PARTICIPANTS_COLLECTION ?? "campaignParticipants_sicoob";
 let accessTokenCache: AccessTokenCache = null;
+let firebaseConfigCache: FirebaseServiceAccount | null | undefined;
 
 function buildParticipantDocumentId(cpf: string, game: PlayerRecord["game"]): string {
   return `${game}_${onlyDigits(cpf)}`;
 }
 
 function getFirebaseConfig(): FirebaseServiceAccount | null {
+  if (firebaseConfigCache !== undefined) {
+    return firebaseConfigCache;
+  }
+
   const raw = process.env.FIREBASE_ADMIN_KEY?.trim();
   if (!raw) {
+    firebaseConfigCache = null;
     return null;
   }
 
@@ -54,16 +60,19 @@ function getFirebaseConfig(): FirebaseServiceAccount | null {
   const parsed = parseConfig(raw) ?? parseConfig(Buffer.from(raw, "base64").toString("utf8"));
   if (!parsed) {
     console.error("firebase-config-invalid");
+    firebaseConfigCache = null;
     return null;
   }
 
   try {
-    return {
+    firebaseConfigCache = {
       ...parsed,
       private_key: parsed.private_key.replace(/\\n/g, "\n").replace(/\r\n/g, "\n")
     };
+    return firebaseConfigCache;
   } catch {
     console.error("firebase-config-read-failed");
+    firebaseConfigCache = null;
     return null;
   }
 }
@@ -284,7 +293,9 @@ export async function clearFirebaseParticipants(): Promise<void> {
 
   await Promise.all(
     participants.map((participant) =>
-      firebaseRequest<null>(`/${participantsCollection}/${participant.id}`, { method: "DELETE" })
+      firebaseRequest<null>(`/${participantsCollection}/${buildParticipantDocumentId(participant.cpf, participant.game)}`, {
+        method: "DELETE"
+      })
     )
   );
 }

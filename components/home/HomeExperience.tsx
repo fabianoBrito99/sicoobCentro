@@ -116,6 +116,20 @@ export default function HomeExperience() {
       <div className={styles.bgMotion} />
       <div className={styles.noise} />
       <BackgroundMarca />
+      <div className={`${styles.homeRibbon} ${styles.topRibbon}`} aria-hidden="true">
+        <div>
+          <span>Cooperar é coisa nossa! * Cooperar é coisa nossa! * </span>
+          <span>Cooperar é coisa nossa! * Cooperar é coisa nossa! * </span>
+          <span>Cooperar é coisa nossa! * Cooperar é coisa nossa! * </span>
+        </div>
+      </div>
+      <div className={`${styles.homeRibbon} ${styles.bottomRibbon}`} aria-hidden="true">
+        <div>
+          <span>Cooperar é coisa nossa! * Cooperar é coisa nossa! * </span>
+          <span>Cooperar é coisa nossa! * Cooperar é coisa nossa! * </span>
+          <span>Cooperar é coisa nossa! * Cooperar é coisa nossa! * </span>
+        </div>
+      </div>
       <ModalEscolhaJogoDia open={!loading && showSelector} onSelect={handleSelectGame} loading={saving} />
 
       {showOfflineNotice ? (

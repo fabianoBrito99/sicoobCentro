@@ -1,6 +1,8 @@
+import type { CSSProperties } from "react";
 import type { PlayerRecord } from "@/types/game";
 import BackHomeButton from "@/components/common/BackHomeButton";
 import FireworksAnimation from "@/components/result/FireworksAnimation";
+import Link from "next/link";
 import styles from "./ResultCard.module.css";
 
 type Props = {
@@ -13,6 +15,33 @@ const gameLabels = {
 } as const;
 
 export default function ResultCard({ participant }: Props) {
+  const isQuiz = participant.game === "quiz";
+  const totalQuizQuestions = 5;
+  const percent = isQuiz ? Math.round((participant.score / totalQuizQuestions) * 100) : 0;
+  const progressStyle = isQuiz ? ({ "--progress": `${percent * 3.6}deg` } as CSSProperties) : undefined;
+
+  if (isQuiz) {
+    return (
+      <>
+        <BackHomeButton game={participant.game} />
+        <section className={styles.quizResult}>
+          <h1>Resultado</h1>
+          <div className={styles.progressRing} style={progressStyle}>
+            <span>{percent}%</span>
+          </div>
+          <p>Você acertou {participant.score} de {totalQuizQuestions} perguntas!</p>
+          <strong>{participant.wonPrize ? "Parabéns! Você ganhou um brinde." : "A partir de 3 acertos ganha brinde."}</strong>
+          <Link href="/" className={styles.resultButton}>
+            Voltar ao início
+          </Link>
+          <Link href="/form" className={`${styles.resultButton} ${styles.altButton}`}>
+            Novo Jogo
+          </Link>
+        </section>
+      </>
+    );
+  }
+
   return (
     <>
       <BackHomeButton game={participant.game} />

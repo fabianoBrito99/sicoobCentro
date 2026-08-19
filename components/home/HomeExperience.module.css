@@ -4,12 +4,23 @@
   place-items: center;
   padding: 18px;
   background:
+    linear-gradient(rgba(0, 154, 144, 0.72), rgba(0, 119, 123, 0.76)),
     radial-gradient(circle at 18% 12%, rgba(199, 216, 47, 0.28), transparent 34%),
     radial-gradient(circle at 84% 28%, rgba(0, 165, 151, 0.32), transparent 38%),
     linear-gradient(145deg, #042f34 0%, #006b72 48%, #07353b 100%);
   color: #f3fff9;
   position: relative;
   overflow: hidden;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url("/Vidros%20jateados%2002.png") center / cover;
+  opacity: 0.03;
 }
 
 .bgMotion {
@@ -47,6 +58,46 @@
     transparent 1px
   );
   background-size: 3px 3px;
+}
+
+.homeRibbon {
+  position: fixed;
+  left: -4%;
+  z-index: 2;
+  width: 108%;
+  overflow: hidden;
+  transform: rotate(-2deg);
+  border-block: 1px solid rgba(255, 255, 255, 0.18);
+  background: #003f49;
+  box-shadow: 0 12px 24px rgba(0, 63, 73, 0.24);
+  pointer-events: none;
+}
+
+.topRibbon {
+  top: 30px;
+  transform: rotate(2deg);
+}
+
+.bottomRibbon {
+  bottom: 24px;
+  transform: rotate(-2deg);
+}
+
+.homeRibbon div {
+  display: flex;
+  width: max-content;
+  padding: 8px 0;
+  animation: homeRibbonMove 24s linear infinite;
+}
+
+.homeRibbon span {
+  padding-right: 18px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 900;
+  white-space: nowrap;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
 }
 
 
@@ -264,7 +315,7 @@
   }
 
   .backButton {
-    top: 12px;
+    top: 64px;
     left: 12px;
   }
 
@@ -289,5 +340,15 @@
 
   100% {
     transform: translate3d(-2%, -1%, 0) rotate(360deg);
+  }
+}
+
+@keyframes homeRibbonMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.33%);
   }
 }

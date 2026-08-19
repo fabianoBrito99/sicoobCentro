@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type { GameType, PlayerFormData, PlayerRecord } from "@/types/game";
 import { getParticipants, saveParticipant, getParticipantByCpfGame } from "@/services/server/storage";
+import { hasWonPrize } from "@/utils/prize";
 import { isValidCpf, isValidEmail, isValidFullName, isValidPhone } from "@/utils/validators";
 
 type ParticipantPayload = PlayerFormData & {
@@ -47,7 +48,7 @@ export async function POST(request: Request) {
     consentAccepted: true,
     game: body.game,
     score: body.score,
-    wonPrize: body.wonPrize ?? body.score >= 5,
+    wonPrize: body.wonPrize ?? hasWonPrize(body.game, body.score),
     playedAt: body.playedAt ?? new Date().toISOString(),
     consentAcceptedAt: body.consentAcceptedAt ?? new Date().toISOString()
   };

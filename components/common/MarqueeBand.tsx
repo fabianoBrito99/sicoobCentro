@@ -4,7 +4,7 @@ type Props = {
   position: "top" | "bottom";
 };
 
-const message = "COOPERAR É COISA NOSSA!   •   VEM PRA COOP!   •   ";
+const message = "COOPERAR É COISA NOSSA!   *   VEM PRA COOP!   *   ";
 
 export default function MarqueeBand({ position }: Props) {
   return (

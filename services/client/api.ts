@@ -3,6 +3,7 @@ import type { DashboardSummary, DailyGameSelection, GameType, PlayerFormData, Pl
 import type { WordSearchPuzzle } from "@/types/wordsearch";
 import { getTodayKey } from "@/utils/date";
 import { onlyDigits } from "@/utils/masks";
+import { hasWonPrize } from "@/utils/prize";
 import { buildWordSearch, getWordSetKey, pickWords } from "@/utils/wordsearch";
 
 type DailyGameResponse = { dailyGame: DailyGameSelection | null };
@@ -288,7 +289,7 @@ export async function saveParticipantRecord(
     consentAccepted: payload.consentAccepted,
     game: payload.game,
     score: payload.score,
-    wonPrize: payload.score >= 5,
+    wonPrize: hasWonPrize(payload.game, payload.score),
     playedAt: new Date().toISOString(),
     consentAcceptedAt: new Date().toISOString()
   };
