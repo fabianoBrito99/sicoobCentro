@@ -2,18 +2,12 @@
   min-height: 100vh;
   display: grid;
   place-items: center;
-  padding: 14px;
-
-
+  padding: 18px;
   background:
-    radial-gradient(circle at 0% 0%, rgba(81, 83, 241, 0.473), transparent 38%),
-    radial-gradient(
-      circle at 90% 20%,
-      rgba(87, 255, 115, 0.24),
-      transparent 42%
-    ),
-    linear-gradient(145deg, #060911 0%, #070d1c 44%, #05070f 100%);
-  color: #e9f2ff;
+    radial-gradient(circle at 18% 12%, rgba(199, 216, 47, 0.28), transparent 34%),
+    radial-gradient(circle at 84% 28%, rgba(0, 165, 151, 0.32), transparent 38%),
+    linear-gradient(145deg, #042f34 0%, #006b72 48%, #07353b 100%);
+  color: #f3fff9;
   position: relative;
   overflow: hidden;
 }
@@ -25,22 +19,21 @@
   background:
     radial-gradient(
       circle at 25% 30%,
-      rgba(24, 39, 244, 0.28),
+      rgba(118, 178, 68, 0.24),
       transparent 36%
     ),
     radial-gradient(
       circle at 75% 60%,
-      rgba(18, 255, 58, 0.205),
+      rgba(0, 158, 146, 0.28),
       transparent 36%
     ),
     conic-gradient(
       from 80deg,
-      rgba(28, 24, 244, 0.12),
-      rgba(18, 189, 255, 0.12),
-      rgba(1, 39, 134, 0.05)
+      rgba(199, 216, 47, 0.12),
+      rgba(0, 158, 146, 0.16),
+      rgba(3, 47, 52, 0.08)
     );
   filter: blur(30px);
-  
   animation: bgDrift 24s linear infinite;
 }
 
@@ -73,50 +66,55 @@
 
 
 
-.img {
-  border-radius: 16px 16px 30px 30px;
-  overflow: hidden;
-}
-
-.center{
+.center {
+  width: min(100%, 460px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
 }
 
 .content {
-  min-height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 22px;
+  text-align: center;
+}
+
+.img {
+  width: min(100%, 380px);
+  display: flex;
+  justify-content: center;
+  overflow: visible;
 }
 
 .eventLogo {
-  width: min(100%, 420px);
+  width: 100%;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.22));
+  filter: drop-shadow(0 24px 42px rgba(2, 36, 39, 0.24));
 }
 
 .badge {
   display: inline-flex;
   width: fit-content;
   max-width: 100%;
-  padding: 10px 16px;
+  padding: 9px 18px;
   border-radius: 999px;
   font-weight: 800;
   font-size: 0.95rem;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f6fff7;
+  background: rgba(0, 76, 80, 0.62);
+  border: 1px solid rgba(199, 216, 47, 0.34);
+  box-shadow: 0 14px 34px rgba(2, 38, 42, 0.22);
   text-align: center;
+  backdrop-filter: blur(12px);
 }
 
 .ctaRow {
-  width: min(100%, 360px);
+  width: min(100%, 370px);
 }
 
 .backButton {
@@ -131,8 +129,8 @@
   display: grid;
   place-items: center;
   color: #ffffff;
-  background: linear-gradient(180deg, #f04444, #b51414);
-  box-shadow: 0 16px 28px rgba(181, 20, 20, 0.28);
+  background: linear-gradient(180deg, #0aa399, #00746f);
+  box-shadow: 0 16px 28px rgba(0, 77, 74, 0.32);
   cursor: pointer;
 }
 
@@ -250,7 +248,19 @@
   }
 
   .eventLogo {
-    width: min(100%, 360px);
+    width: 100%;
+  }
+
+  .center {
+    width: min(100%, 390px);
+  }
+
+  .content {
+    gap: 18px;
+  }
+
+  .img {
+    width: min(100%, 330px);
   }
 
   .backButton {

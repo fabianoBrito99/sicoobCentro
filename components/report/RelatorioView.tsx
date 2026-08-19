@@ -15,14 +15,14 @@ import styles from "./RelatorioView.module.css";
 const emptySummary: DashboardSummary = {
   totalPlayers: 0,
   memoryPlayers: 0,
-  wordSearchPlayers: 0,
+  quizPlayers: 0,
   bestPrizeGame: "Nenhum",
   averageMemoryScore: 0,
-  averageWordSearchScore: 0,
+  averageQuizScore: 0,
   wins: 0,
   losses: 0,
   memoryConversionRate: 0,
-  wordSearchConversionRate: 0
+  quizConversionRate: 0
 };
 
 export default function RelatorioView() {

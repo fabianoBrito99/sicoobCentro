@@ -36,7 +36,7 @@ export function savePreferredGame(game: GameType): void {
 
 export function loadPreferredGame(): GameType | null {
   const value = window.localStorage.getItem(PREFERRED_GAME_KEY);
-  return value === "memory" || value === "wordsearch" ? value : null;
+  return value === "memory" || value === "quiz" ? value : null;
 }
 
 export function clearPreferredGame(): void {

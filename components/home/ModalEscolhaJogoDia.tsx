@@ -30,10 +30,10 @@ export default function ModalEscolhaJogoDia({ open, onSelect, loading }: Props) 
           <button
             className={styles.secondary}
             type="button"
-            onClick={() => onSelect("wordsearch")}
+            onClick={() => onSelect("quiz")}
             disabled={loading}
           >
-            {"Ca\u00E7a-palavras"}
+            Quiz
           </button>
         </div>
       </div>

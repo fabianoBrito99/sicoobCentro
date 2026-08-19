@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     !isValidPhone(body.phone) ||
     !isValidEmail(body.email) ||
     !body.consentAccepted ||
-    (body.game !== "memory" && body.game !== "wordsearch")
+    (body.game !== "memory" && body.game !== "quiz")
   ) {
     return NextResponse.json({ error: "Dados invalidos." }, { status: 400 });
   }

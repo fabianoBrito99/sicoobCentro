@@ -1,4 +1,4 @@
-export type GameType = "memory" | "wordsearch";
+export type GameType = "memory" | "quiz";
 
 export type DailyGameSelection = {
   date: string;
@@ -25,14 +25,14 @@ export type PlayerRecord = PlayerFormData & {
 export type DashboardSummary = {
   totalPlayers: number;
   memoryPlayers: number;
-  wordSearchPlayers: number;
+  quizPlayers: number;
   bestPrizeGame: string;
   averageMemoryScore: number;
-  averageWordSearchScore: number;
+  averageQuizScore: number;
   wins: number;
   losses: number;
   memoryConversionRate: number;
-  wordSearchConversionRate: number;
+  quizConversionRate: number;
 };
 
 export type AppStorage = {

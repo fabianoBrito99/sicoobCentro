@@ -1,7 +1,7 @@
 {
   "dailyGame": {
     "date": "2026-08-19",
-    "game": "memory"
+    "game": "quiz"
   },
   "participants": [
     {
@@ -10,7 +10,7 @@
       "cpf": "053.792.662-31",
       "phone": "(69) 99323-4428",
       "email": "fabianobrito99.fbs@gmail.com",
-      "game": "wordsearch",
+      "game": "quiz",
       "score": 8,
       "wonPrize": true,
       "playedAt": "2026-03-24T12:03:10.275Z"

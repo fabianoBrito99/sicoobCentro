@@ -9,7 +9,7 @@ type Props = {
 
 const gameLabels = {
   memory: "Jogo da Mem\u00F3ria",
-  wordsearch: "Ca\u00E7a-palavras"
+  quiz: "Quiz"
 } as const;
 
 export default function ResultCard({ participant }: Props) {

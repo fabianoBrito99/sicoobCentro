@@ -20,7 +20,7 @@ export default function WordSearchGameScreen() {
 
   useEffect(() => {
     const session = loadPlayerSession();
-    if (!session || session.game !== "wordsearch") {
+    if (!session || (session.game as string) !== "wordsearch") {
       router.replace("/form");
       return;
     }
@@ -68,7 +68,7 @@ export default function WordSearchGameScreen() {
     setLocked(true);
     const participant = await saveParticipantRecord({
       ...session.player,
-      game: "wordsearch",
+      game: "wordsearch" as never,
       score: finalScore
     });
     saveLastResultParticipantId(participant.id);

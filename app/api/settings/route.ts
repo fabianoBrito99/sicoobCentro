@@ -6,6 +6,10 @@ import { clearDailyGame, getDailyGame, setDailyGame } from "@/services/server/st
 
 const dailyGameCookieName = "campaign_daily_game";
 
+function isCampaignGame(value: unknown): value is GameType {
+  return value === "memory" || value === "quiz";
+}
+
 async function readDailyGameCookie(): Promise<DailyGameSelection | null> {
   const store = await cookies();
   const raw = store.get(dailyGameCookieName)?.value;
@@ -15,7 +19,7 @@ async function readDailyGameCookie(): Promise<DailyGameSelection | null> {
 
   try {
     const parsed = JSON.parse(raw) as DailyGameSelection;
-    return parsed.date === getTodayKey() ? parsed : null;
+    return parsed.date === getTodayKey() && isCampaignGame(parsed.game) ? parsed : null;
   } catch {
     return null;
   }
@@ -26,7 +30,8 @@ export async function GET() {
   const cookieDailyGame = await readDailyGameCookie();
 
   try {
-    dailyGame = await getDailyGame();
+    const storedDailyGame = await getDailyGame();
+    dailyGame = storedDailyGame && isCampaignGame(storedDailyGame.game) ? storedDailyGame : null;
   } catch {
     dailyGame = cookieDailyGame;
   }
@@ -40,7 +45,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   const body = (await request.json()) as { game?: GameType };
-  if (body.game !== "memory" && body.game !== "wordsearch") {
+  if (!isCampaignGame(body.game)) {
     return NextResponse.json({ error: "Jogo invalido." }, { status: 400 });
   }
 

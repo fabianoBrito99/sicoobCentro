@@ -20,7 +20,7 @@ import styles from "./HomeExperience.module.css";
 
 const labels: Record<GameType, string> = {
   memory: "Jogo da Memória",
-  wordsearch: "Caça-palavras"
+  quiz: "Quiz"
 };
 
 export default function HomeExperience() {
@@ -85,11 +85,11 @@ export default function HomeExperience() {
     void router.prefetch("/");
     void router.prefetch("/form");
     void router.prefetch("/game/memory");
-    void router.prefetch("/game/wordsearch");
+    void router.prefetch("/game/quiz");
     void router.prefetch("/resultado");
     void router.prefetch("/relatorio");
 
-    Array.from({ length: 10 }, (_, index) => `/im${index + 1}.jpeg`).forEach((src) => {
+    Array.from({ length: 10 }, (_, index) => `/im${index + 1}.png`).forEach((src) => {
       const image = new Image();
       image.src = src;
     });
@@ -176,8 +176,8 @@ export default function HomeExperience() {
       ) : null}
 
       <div className={styles.center}>
-        <div className={styles.badge}>{dailyGame ? labels[dailyGame] : "Defina o jogo do dia"}</div>
         <div className={styles.content}>
+          <div className={styles.badge}>{dailyGame ? labels[dailyGame] : "Defina o jogo do dia"}</div>
           <div className={styles.img}>
             <img src={eventLogoSrc} alt="Logo do evento" className={styles.eventLogo} />
           </div>

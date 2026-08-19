@@ -29,6 +29,10 @@ const defaultBrowserStorage: BrowserStorage = {
   lastWordSetKey: null
 };
 
+function isCampaignGame(value: unknown): value is GameType {
+  return value === "memory" || value === "quiz";
+}
+
 function canUseBrowserStorage(): boolean {
   return typeof window !== "undefined" && typeof window.localStorage !== "undefined";
 }
@@ -177,7 +181,7 @@ function normalizeDailyGameForToday(selection: DailyGameSelection | null): Daily
     return null;
   }
 
-  return selection.date === getTodayKey() ? selection : null;
+  return selection.date === getTodayKey() && isCampaignGame(selection.game) ? selection : null;
 }
 
 async function readJsonSafely<T>(response: Response): Promise<T | null> {

@@ -17,12 +17,12 @@ import styles from "./FormularioJogador.module.css";
 
 const routeByGame: Record<GameType, string> = {
   memory: "/game/memory",
-  wordsearch: "/game/wordsearch"
+  quiz: "/game/quiz"
 };
 
 const gameLabel: Record<GameType, string> = {
   memory: "Jogo da Memória",
-  wordsearch: "Caça-palavras"
+  quiz: "Quiz"
 };
 
 type Props = {

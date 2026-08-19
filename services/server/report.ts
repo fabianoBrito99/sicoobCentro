@@ -20,26 +20,26 @@ function conversionRate(participants: PlayerRecord[]): number {
 
 export function buildDashboardSummary(participants: PlayerRecord[]): DashboardSummary {
   const memory = participants.filter((item) => item.game === "memory");
-  const wordsearch = participants.filter((item) => item.game === "wordsearch");
+  const quiz = participants.filter((item) => item.game === "quiz");
   const memoryWinners = memory.filter((item) => item.wonPrize).length;
-  const wordsearchWinners = wordsearch.filter((item) => item.wonPrize).length;
+  const quizWinners = quiz.filter((item) => item.wonPrize).length;
 
   return {
     totalPlayers: participants.length,
     memoryPlayers: memory.length,
-    wordSearchPlayers: wordsearch.length,
+    quizPlayers: quiz.length,
     bestPrizeGame:
-      memoryWinners === wordsearchWinners
+      memoryWinners === quizWinners
         ? "Empate"
-        : memoryWinners > wordsearchWinners
+        : memoryWinners > quizWinners
           ? "Jogo da Mem\u00F3ria"
-          : "Ca\u00E7a-palavras",
+          : "Quiz",
     averageMemoryScore: average(memory.map((item) => item.score)),
-    averageWordSearchScore: average(wordsearch.map((item) => item.score)),
+    averageQuizScore: average(quiz.map((item) => item.score)),
     wins: participants.filter((item) => item.wonPrize).length,
     losses: participants.filter((item) => !item.wonPrize).length,
     memoryConversionRate: conversionRate(memory),
-    wordSearchConversionRate: conversionRate(wordsearch)
+    quizConversionRate: conversionRate(quiz)
   };
 }
 

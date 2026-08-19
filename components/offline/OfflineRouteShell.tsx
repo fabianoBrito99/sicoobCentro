@@ -4,9 +4,9 @@ import { usePathname } from "next/navigation";
 import FormPageClient from "@/components/forms/FormPageClient";
 import HomeExperience from "@/components/home/HomeExperience";
 import MemoryGameScreen from "@/components/memory/MemoryGameScreen";
+import QuizGameScreen from "@/components/quiz/QuizGameScreen";
 import RelatorioView from "@/components/report/RelatorioView";
 import ResultadoView from "@/components/result/ResultadoView";
-import WordSearchGameScreen from "@/components/wordsearch/WordSearchGameScreen";
 
 export default function OfflineRouteShell() {
   const pathname = usePathname();
@@ -19,8 +19,8 @@ export default function OfflineRouteShell() {
     return <MemoryGameScreen />;
   }
 
-  if (pathname === "/game/wordsearch") {
-    return <WordSearchGameScreen />;
+  if (pathname === "/game/quiz") {
+    return <QuizGameScreen />;
   }
 
   if (pathname === "/resultado") {
