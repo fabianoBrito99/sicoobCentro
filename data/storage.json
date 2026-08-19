@@ -1,9 +1,22 @@
 {
   "dailyGame": {
     "date": "2026-08-19",
-    "game": "memory"
+    "game": "quiz"
   },
   "participants": [
+    {
+      "id": "dc104bcb-7127-40be-8861-923814ae4e4a",
+      "fullName": "FABIANO DE SOUZA",
+      "cpf": "182.858.365-09",
+      "phone": "(69) 99387-8894",
+      "email": "fabiano99.fbs@gmail.com",
+      "consentAccepted": true,
+      "game": "quiz",
+      "score": 4,
+      "wonPrize": true,
+      "playedAt": "2026-08-19T23:46:21.574Z",
+      "consentAcceptedAt": "2026-08-19T23:46:21.574Z"
+    },
     {
       "id": "23107cef-ca43-4230-8717-476e8736ca8f",
       "fullName": "FABIANO BRITO DE SOUZA",

@@ -1,8 +1,8 @@
 import type { CSSProperties } from "react";
+import Link from "next/link";
 import type { PlayerRecord } from "@/types/game";
 import BackHomeButton from "@/components/common/BackHomeButton";
 import FireworksAnimation from "@/components/result/FireworksAnimation";
-import Link from "next/link";
 import styles from "./ResultCard.module.css";
 
 type Props = {
@@ -10,33 +10,57 @@ type Props = {
 };
 
 const gameLabels = {
-  memory: "Jogo da Mem\u00F3ria",
+  memory: "Jogo da Memória",
   quiz: "Quiz"
 } as const;
 
-export default function ResultCard({ participant }: Props) {
-  const isQuiz = participant.game === "quiz";
-  const totalQuizQuestions = 5;
-  const percent = isQuiz ? Math.round((participant.score / totalQuizQuestions) * 100) : 0;
-  const progressStyle = isQuiz ? ({ "--progress": `${percent * 3.6}deg` } as CSSProperties) : undefined;
+function ResultRibbon({ position }: { position: "top" | "bottom" }) {
+  return (
+    <div className={`${styles.resultRibbon} ${position === "top" ? styles.topRibbon : styles.bottomRibbon}`} aria-hidden="true">
+      <div>
+        <span>Cooperar é coisa nossa! * vem pra coop! * </span>
+        <span>Cooperar é coisa nossa! * vem pra coop! * </span>
+        <span>Cooperar é coisa nossa! * vem pra coop! * </span>
+      </div>
+    </div>
+  );
+}
 
-  if (isQuiz) {
+export default function ResultCard({ participant }: Props) {
+  const totalItems = participant.game === "quiz" ? 5 : 10;
+  const itemLabel = participant.game === "quiz" ? "perguntas" : "pares";
+  const percent = Math.round((participant.score / totalItems) * 100);
+  const progressStyle = { "--progress": `${percent * 3.6}deg` } as CSSProperties;
+
+  if (participant.game === "quiz" || participant.game === "memory") {
     return (
       <>
         <BackHomeButton game={participant.game} />
         <section className={styles.quizResult}>
-          <h1>Resultado</h1>
-          <div className={styles.progressRing} style={progressStyle}>
-            <span>{percent}%</span>
+          <ResultRibbon position="top" />
+          <ResultRibbon position="bottom" />
+          <div className={styles.quizResultContent}>
+            <h1>Resultado</h1>
+            <div className={styles.progressRing} style={progressStyle}>
+              <span>{percent}%</span>
+            </div>
+            <p>
+              Você acertou {participant.score} de {totalItems} {itemLabel}!
+            </p>
+            <strong>
+              {participant.wonPrize
+                ? "Parabéns! Você ganhou um brinde."
+                : participant.game === "quiz"
+                  ? "A partir de 3 acertos ganha brinde."
+                  : "A partir de 5 acertos ganha brinde."}
+            </strong>
+            <Link href="/" className={styles.resultButton}>
+              Voltar ao início
+            </Link>
+            <Link href="/form" className={`${styles.resultButton} ${styles.altButton}`}>
+              Novo Jogo
+            </Link>
           </div>
-          <p>Você acertou {participant.score} de {totalQuizQuestions} perguntas!</p>
-          <strong>{participant.wonPrize ? "Parabéns! Você ganhou um brinde." : "A partir de 3 acertos ganha brinde."}</strong>
-          <Link href="/" className={styles.resultButton}>
-            Voltar ao início
-          </Link>
-          <Link href="/form" className={`${styles.resultButton} ${styles.altButton}`}>
-            Novo Jogo
-          </Link>
         </section>
       </>
     );
@@ -51,8 +75,8 @@ export default function ResultCard({ participant }: Props) {
           <p className={styles.eyebrow}>Resultado final</p>
           <h1>
             {participant.wonPrize
-              ? "Parab\u00E9ns! Voc\u00EA ganhou um brinde!"
-              : "Sua participa\u00E7\u00E3o foi conclu\u00EDda. Continue com a gente nas pr\u00F3ximas experi\u00EAncias."}
+              ? "Parabéns! Você ganhou um brinde!"
+              : "Sua participação foi concluída. Continue com a gente nas próximas experiências."}
           </h1>
         </div>
         <div className={styles.grid}>
@@ -70,7 +94,7 @@ export default function ResultCard({ participant }: Props) {
           </article>
           <article>
             <span>Status</span>
-            <strong>{participant.wonPrize ? "Ganhou brinde" : "Participa\u00E7\u00E3o conclu\u00EDda"}</strong>
+            <strong>{participant.wonPrize ? "Ganhou brinde" : "Participação concluída"}</strong>
           </article>
         </div>
       </section>

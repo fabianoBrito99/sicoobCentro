@@ -12,21 +12,46 @@
 }
 
 .quizResult {
-  width: min(100%, 455px);
+  width: 100%;
   min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 92px 18px 82px;
+  color: #ffffff;
+  text-align: center;
+  background:
+    linear-gradient(rgba(0, 154, 144, 0.72), rgba(0, 119, 123, 0.76)),
+    radial-gradient(circle at 18% 12%, rgba(199, 216, 47, 0.28), transparent 34%),
+    radial-gradient(circle at 84% 28%, rgba(0, 165, 151, 0.32), transparent 38%),
+    linear-gradient(145deg, #042f34 0%, #006b72 48%, #07353b 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.quizResult::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url("/Vidros%20jateados%2002.png") center / cover;
+  opacity: 0.03;
+}
+
+.quizResultContent {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 330px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 38px 18px 28px;
-  color: #ffffff;
-  text-align: center;
-  background: #003f49;
 }
 
-.quizResult h1 {
+.quizResultContent h1 {
   margin: 0 0 26px;
   font-size: clamp(2.8rem, 11vw, 4rem);
   line-height: 1;
+  text-shadow: 0 4px 12px rgba(0, 63, 73, 0.28);
 }
 
 .progressRing {
@@ -46,7 +71,7 @@
   position: absolute;
   inset: 11px;
   border-radius: 50%;
-  background: #003f49;
+  background: #006b72;
 }
 
 .progressRing span {
@@ -56,13 +81,14 @@
   font-weight: 800;
 }
 
-.quizResult p {
+.quizResultContent p {
   margin: 0;
   font-size: clamp(1.65rem, 6.6vw, 2rem);
   line-height: 1.2;
+  text-shadow: 0 3px 8px rgba(0, 63, 73, 0.32);
 }
 
-.quizResult strong {
+.quizResultContent strong {
   min-height: 28px;
   margin: 18px 0 28px;
   color: #c7d82f;
@@ -86,6 +112,45 @@
 
 .altButton {
   background: #078aa0;
+}
+
+.resultRibbon {
+  position: absolute;
+  left: -4%;
+  z-index: 2;
+  width: 108%;
+  overflow: hidden;
+  border-block: 1px solid rgba(255, 255, 255, 0.18);
+  background: #003f49;
+  box-shadow: 0 12px 24px rgba(0, 63, 73, 0.24);
+  pointer-events: none;
+}
+
+.topRibbon {
+  top: 30px;
+  transform: rotate(2deg);
+}
+
+.bottomRibbon {
+  bottom: 24px;
+  transform: rotate(-2deg);
+}
+
+.resultRibbon div {
+  display: flex;
+  width: max-content;
+  padding: 8px 0;
+  animation: resultRibbonMove 24s linear infinite;
+}
+
+.resultRibbon span {
+  padding-right: 18px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 900;
+  white-space: nowrap;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
 }
 
 .win {
@@ -188,5 +253,15 @@
 @media (max-width: 720px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@keyframes resultRibbonMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.33%);
   }
 }
