@@ -1,0 +1,40 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.compact {
+  gap: 10px;
+}
+
+.mark {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 48px rgba(0, 210, 255, 0.18));
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.copy span {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.95rem;
+}
+
+.copy strong {
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  color: #ffffff;
+}
+
+.compact .mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 156px;
+  height: 156px;
+}

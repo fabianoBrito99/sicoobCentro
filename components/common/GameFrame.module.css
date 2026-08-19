@@ -1,0 +1,93 @@
+.page {
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.shell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: clamp(20px, 3vw, 32px);
+  display: grid;
+  gap: 24px;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, rgba(11, 19, 33, 0.95), rgba(8, 12, 24, 0.96));
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.copy {
+  display: grid;
+  gap: 18px;
+}
+
+.eyebrow,
+.subtitle,
+.copy h1 {
+  margin: 0;
+}
+
+.eyebrow {
+  color: #8cf4ff;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.copy h1 {
+  font-size: clamp(2rem, 3vw, 3.4rem);
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.side {
+  display: grid;
+  gap: 12px;
+  justify-items: end;
+}
+
+.score {
+  min-width: 140px;
+  padding: 14px 18px;
+  text-align: center;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.score span {
+  display: block;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.score strong {
+  font-size: 2rem;
+}
+
+@media (max-width: 780px) {
+  .page {
+    padding: 10px;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .side {
+    width: 100%;
+    justify-items: stretch;
+  }
+}

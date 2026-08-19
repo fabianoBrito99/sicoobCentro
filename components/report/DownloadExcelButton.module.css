@@ -1,0 +1,14 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 999px;
+  color: #07101f;
+  cursor: pointer;
+  font-weight: 800;
+  text-decoration: none;
+  background: linear-gradient(135deg, #ffb703, #ffd76a);
+}

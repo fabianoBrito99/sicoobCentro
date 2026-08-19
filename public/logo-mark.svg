@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="160" viewBox="0 0 420 160" fill="none">
+  <rect width="420" height="160" rx="28" fill="#102D63"/>
+  <path d="M74 22H46V138H74V86H112V58H74V22Z" stroke="#8DC76F" stroke-width="8"/>
+  <circle cx="122" cy="80" r="54" stroke="#7DC0ED" stroke-width="8"/>
+  <circle cx="122" cy="80" r="31" stroke="#7DC0ED" stroke-width="6"/>
+  <text x="88" y="89" fill="white" font-family="Segoe UI, Arial" font-size="18" font-style="italic" font-weight="700">anos</text>
+  <text x="176" y="98" fill="white" font-family="Segoe UI, Arial" font-size="56" font-style="italic" font-weight="800">SEBRAE</text>
+  <text x="178" y="126" fill="white" font-family="Segoe UI, Arial" font-size="24" font-style="italic" font-weight="700">ROLIM DE MOURA</text>
+</svg>

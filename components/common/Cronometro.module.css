@@ -1,0 +1,46 @@
+.timer {
+  display: inline-grid;
+  gap: 4px;
+  min-width: 168px;
+  padding: 14px 18px;
+  border-radius: 22px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.label {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.timer strong {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1;
+}
+
+.safe {
+  background: rgba(5, 170, 90, 0.2);
+  color: #8fffc3;
+}
+
+.warning {
+  background: rgba(255, 197, 42, 0.18);
+  color: #ffe38d;
+}
+
+.danger {
+  background: rgba(255, 78, 78, 0.18);
+  color: #ff9b9b;
+  animation: pulse 0.8s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}

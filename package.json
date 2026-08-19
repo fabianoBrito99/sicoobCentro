@@ -1,0 +1,28 @@
+{
+  "name": "jogos-totem-pwa",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "idb": "^8.0.2",
+    "next": "^16.1.6",
+    "next-pwa": "^5.6.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "baseline-browser-mapping": "^2.10.0",
+    "eslint": "^9.26.0",
+    "eslint-config-next": "^16.1.6",
+    "typescript": "^5.8.3"
+  }
+}

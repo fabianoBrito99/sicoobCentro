@@ -1,0 +1,20 @@
+{
+  "dailyGame": {
+    "date": "2026-08-19",
+    "game": "memory"
+  },
+  "participants": [
+    {
+      "id": "23107cef-ca43-4230-8717-476e8736ca8f",
+      "fullName": "FABIANO BRITO DE SOUZA",
+      "cpf": "053.792.662-31",
+      "phone": "(69) 99323-4428",
+      "email": "fabianobrito99.fbs@gmail.com",
+      "game": "wordsearch",
+      "score": 8,
+      "wonPrize": true,
+      "playedAt": "2026-03-24T12:03:10.275Z"
+    }
+  ],
+  "lastWordSetKey": null
+}

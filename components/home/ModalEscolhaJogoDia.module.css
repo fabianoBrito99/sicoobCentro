@@ -1,0 +1,53 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(2, 10, 18, 0.72);
+  backdrop-filter: blur(14px);
+  z-index: 50;
+}
+
+.modal {
+  width: min(560px, 100%);
+  padding: 32px;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, rgba(10, 20, 34, 0.98), rgba(8, 12, 24, 0.98));
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.35);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #8cf4ff;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.modal h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.text {
+  margin: 12px 0 24px;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.actions {
+  display: grid;
+  gap: 12px;
+}
+
+.secondary {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  min-height: 56px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}

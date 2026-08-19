@@ -1,0 +1,83 @@
+.quizOption {
+  transition:
+    transform 180ms ease,
+    box-shadow 220ms ease,
+    filter 220ms ease;
+}
+
+.quizOption:disabled {
+  cursor: default;
+}
+
+.feedbackState {
+  animation: appear 220ms ease;
+}
+
+.feedbackBanner {
+  margin: 0;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 10px;
+  font-weight: 700;
+}
+
+.ok {
+  background: linear-gradient(90deg, rgba(22, 163, 74, 0.3), rgba(34, 197, 94, 0.25));
+  color: #d9ffe8;
+}
+
+.fail {
+  background: linear-gradient(90deg, rgba(185, 28, 28, 0.36), rgba(239, 68, 68, 0.25));
+  color: #ffd8d8;
+}
+
+.correct {
+  animation: correctPulse 450ms ease;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.4);
+}
+
+.wrong {
+  animation: wrongShake 320ms ease;
+  box-shadow: 0 0 0 2px rgba(244, 63, 94, 0.4);
+}
+
+@keyframes correctPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wrongShake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

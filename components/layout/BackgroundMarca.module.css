@@ -1,0 +1,136 @@
+.shell {
+  inset: 0;
+  position: fixed;
+  overflow: hidden;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, #00a99d 0%, #008f87 46%, #006b72 100%),
+    radial-gradient(circle at 20% 20%, rgba(213, 223, 52, 0.26), transparent 25%),
+    radial-gradient(circle at 85% 14%, rgba(255, 255, 255, 0.16), transparent 20%);
+}
+
+.gradient,
+.orb,
+.orbSecondary,
+.ribbonOne,
+.ribbonTwo,
+.circleOne,
+.circleTwo,
+.grid,
+.noise {
+  position: absolute;
+}
+
+.gradient {
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(0, 63, 73, 0.18), rgba(255, 255, 255, 0.04) 36%, rgba(213, 223, 52, 0.12)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 42%);
+}
+
+.orb,
+.orbSecondary {
+  border-radius: 50%;
+  filter: blur(4px);
+  animation: floatSlow 18s ease-in-out infinite alternate;
+}
+
+.orb {
+  width: 42vw;
+  height: 42vw;
+  min-width: 260px;
+  min-height: 260px;
+  left: -10vw;
+  top: 8vh;
+  background: radial-gradient(circle, rgba(213, 223, 52, 0.22), transparent 68%);
+}
+
+.orbSecondary {
+  width: 38vw;
+  height: 38vw;
+  min-width: 220px;
+  min-height: 220px;
+  right: -8vw;
+  bottom: 6vh;
+  background: radial-gradient(circle, rgba(0, 63, 73, 0.2), transparent 70%);
+  animation-duration: 24s;
+}
+
+.ribbonOne,
+.ribbonTwo {
+  width: 180%;
+  height: 32%;
+  left: -30%;
+  opacity: 0.15;
+  background:
+    linear-gradient(90deg, transparent 0 8%, rgba(255, 255, 255, 0.1) 8% 12%, transparent 12% 18%, rgba(0, 210, 255, 0.14) 18% 24%, transparent 24% 30%),
+    linear-gradient(90deg, transparent 0 18%, rgba(255, 255, 255, 0.08) 18% 23%, transparent 23% 31%, rgba(141, 199, 111, 0.12) 31% 35%, transparent 35%);
+  transform: rotate(-10deg);
+  animation: slideRibbon 28s linear infinite;
+}
+
+.ribbonOne {
+  top: 8%;
+}
+
+.ribbonTwo {
+  bottom: 10%;
+  transform: rotate(8deg);
+  animation-duration: 34s;
+  animation-direction: reverse;
+}
+
+.circleOne,
+.circleTwo {
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.circleOne {
+  width: 180px;
+  height: 180px;
+  left: -40px;
+  bottom: 14%;
+}
+
+.circleTwo {
+  width: 240px;
+  height: 240px;
+  right: -70px;
+  top: 16%;
+}
+
+.grid {
+  inset: 0;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(180deg, transparent 0%, black 18%, black 82%, transparent 100%);
+}
+
+.noise {
+  inset: 0;
+  opacity: 0.08;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.8) 0.7px, transparent 0.7px);
+  background-size: 24px 24px;
+}
+
+@keyframes floatSlow {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(16px, -24px, 0) scale(1.06);
+  }
+}
+
+@keyframes slideRibbon {
+  from {
+    transform: translateX(0) rotate(-10deg);
+  }
+  to {
+    transform: translateX(12%) rotate(-10deg);
+  }
+}

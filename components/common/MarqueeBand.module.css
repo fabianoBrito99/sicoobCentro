@@ -1,0 +1,51 @@
+.band {
+  position: fixed;
+  left: -2%;
+  z-index: 1;
+  width: 104%;
+  overflow: hidden;
+  border-block: 1px solid rgba(255, 255, 255, 0.14);
+  background: #003f49;
+  color: #ffffff;
+  transform: rotate(-2deg);
+  pointer-events: none;
+}
+
+.top {
+  top: 16px;
+}
+
+.bottom {
+  bottom: 16px;
+  transform: rotate(2deg);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  padding: 7px 0;
+  white-space: nowrap;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  animation: marquee 22s linear infinite;
+}
+
+.track span {
+  padding-right: 1rem;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

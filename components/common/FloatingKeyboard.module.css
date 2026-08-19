@@ -1,0 +1,102 @@
+.keyboard {
+  position: fixed;
+  top: 22px;
+  left: 50%;
+  z-index: 10;
+  width: min(680px, calc(100vw - 28px));
+  padding: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 18px;
+  background: #003f49;
+  box-shadow: 0 18px 44px rgba(0, 48, 57, 0.34);
+  transform: translateX(-50%);
+}
+
+.handle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 6px 10px;
+  color: #ffffff;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.handle:active {
+  cursor: grabbing;
+}
+
+.handle strong {
+  color: #d5df34;
+}
+
+.grip {
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.keys {
+  display: grid;
+  gap: 6px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.key {
+  min-height: 38px;
+  border: 0;
+  border-radius: 8px;
+  background: #f4f5ed;
+  color: #003f49;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.12);
+}
+
+.key:active {
+  background: #d5df34;
+  transform: translateY(1px);
+}
+
+.wide {
+  grid-column: span 6;
+}
+
+.action {
+  grid-column: span 4;
+  background: #d5df34;
+}
+
+@media (max-width: 520px) {
+  .keyboard {
+    top: 12px;
+    padding: 8px;
+  }
+
+  .handle {
+    font-size: 0.78rem;
+  }
+
+  .grip {
+    display: none;
+  }
+
+  .row {
+    gap: 4px;
+  }
+
+  .key {
+    min-height: 34px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+  }
+}

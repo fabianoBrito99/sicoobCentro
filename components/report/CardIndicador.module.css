@@ -1,0 +1,44 @@
+.card {
+  min-height: 132px;
+  padding: 18px 18px 20px;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at top right, rgba(87, 255, 115, 0.16), transparent 24%),
+    radial-gradient(circle at top left, rgba(81, 83, 241, 0.2), transparent 30%),
+    linear-gradient(180deg, rgba(18, 26, 52, 0.94), rgba(10, 15, 28, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: grid;
+  align-content: space-between;
+  gap: 18px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 20px 36px rgba(0, 0, 0, 0.26);
+  overflow: hidden;
+  position: relative;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(81, 83, 241, 0.9), rgba(87, 255, 115, 0.75));
+  opacity: 0.85;
+}
+
+.card span {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card strong {
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+}

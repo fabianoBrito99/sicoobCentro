@@ -1,0 +1,33 @@
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field span {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 700;
+}
+
+.input {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.input:focus {
+  outline: 2px solid rgba(0, 210, 255, 0.55);
+  outline-offset: 2px;
+}
+
+.invalid {
+  border-color: rgba(255, 98, 98, 0.65);
+}
+
+.error {
+  color: #ff9090;
+}
