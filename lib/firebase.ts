@@ -30,7 +30,7 @@ type AccessTokenCache = {
 } | null;
 
 const firestoreScope = "https://www.googleapis.com/auth/datastore";
-const participantsCollection = process.env.FIREBASE_PARTICIPANTS_COLLECTION ?? "campaignParticipants";
+const participantsCollection = process.env.FIREBASE_PARTICIPANTS_COLLECTION ?? "campaignParticipants_sicoob";
 let accessTokenCache: AccessTokenCache = null;
 
 function buildParticipantDocumentId(cpf: string, game: PlayerRecord["game"]): string {
